@@ -34,4 +34,13 @@ public class OrderService {
             throw new AppException("Could not place order. Please try again.", e);
         }
     }
+
+    public java.util.List<com.madhunisha.madhumart.model.Order> history(long userId) throws AppException {
+        try {
+            return orderDao.findByBuyer(userId);
+        } catch (SQLException e) {
+            log.error("Could not load orders", e);
+            throw new AppException("Could not load your orders", e);
+        }
+    }
 }

@@ -93,4 +93,46 @@ public class OrderDao {
             }
         }
     }
+
+    public List<com.madhunisha.madhumart.model.Order> findByBuyer(long userId) throws SQLException {
+        List<com.madhunisha.madhumart.model.Order> orders = new ArrayList<>();
+        String orderSql = "SELECT id, total_amount, status, shipping_address, created_at "
+                        + "FROM orders WHERE buyer_id = ? ORDER BY id DESC";
+        String itemSql = "SELECT oi.product_id, oi.quantity, oi.unit_price, p.name "
+                       + "FROM order_items oi JOIN products p ON p.id = oi.product_id "
+                       + "WHERE oi.order_id = ?";
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(orderSql)) {
+            ps.setLong(1, userId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    com.madhunisha.madhumart.model.Order o = new com.madhunisha.madhumart.model.Order();
+                    o.setId(rs.getLong("id"));
+                    o.setBuyerId(userId);
+                    o.setTotalAmount(rs.getBigDecimal("total_amount"));
+                    o.setStatus(rs.getString("status"));
+                    o.setShippingAddress(rs.getString("shipping_address"));
+                    o.setCreatedAt(rs.getTimestamp("created_at"));
+                    orders.add(o);
+                }
+            }
+            for (com.madhunisha.madhumart.model.Order o : orders) {
+                try (PreparedStatement ips = con.prepareStatement(itemSql)) {
+                    ips.setLong(1, o.getId());
+                    try (ResultSet irs = ips.executeQuery()) {
+                        while (irs.next()) {
+                            com.madhunisha.madhumart.model.OrderItem it = new com.madhunisha.madhumart.model.OrderItem();
+                            it.setOrderId(o.getId());
+                            it.setProductId(irs.getLong("product_id"));
+                            it.setQuantity(irs.getInt("quantity"));
+                            it.setUnitPrice(irs.getBigDecimal("unit_price"));
+                            it.setProductName(irs.getString("name"));
+                            o.getItems().add(it);
+                        }
+                    }
+                }
+            }
+        }
+        return orders;
+    }
 }
