@@ -12,6 +12,7 @@
 <nav>
   <a class="brand" href="${pageContext.request.contextPath}/">MadhuMart</a>
   <a href="${pageContext.request.contextPath}/products">Products</a>
+  <a href="${pageContext.request.contextPath}/cart">Cart</a>
 </nav>
 <div class="container">
   <div class="card">
@@ -32,9 +33,24 @@
         <b><c:out value="${p.name}"/></b><br>
         <c:out value="${p.category}"/> | Rs. <c:out value="${p.price}"/><br>
         Seller: <c:out value="${p.sellerName}"/>
+      <br><button class="btn" type="button" onclick="addToCart(${p.id})">Add to Cart</button>
       </div>
     </c:forEach>
   </div>
 </div>
+<script>
+function addToCart(id) {
+  fetch('${pageContext.request.contextPath}/cart', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: 'action=add&ajax=1&productId=' + id
+  }).then(function (r) {
+    if (r.redirected) { window.location = r.url; return null; }
+    return r.json();
+  }).then(function (d) {
+    if (d) { alert(d.message + ' (Cart items: ' + d.count + ')'); }
+  }).catch(function () { alert('Something went wrong'); });
+}
+</script>
 </body>
 </html>
