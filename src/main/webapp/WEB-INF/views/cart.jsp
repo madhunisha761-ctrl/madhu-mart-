@@ -39,6 +39,7 @@
     </c:forEach>
     <c:if test="${not empty items}">
       <h3>Total: Rs. <c:out value="${total}"/></h3>
+      <a class="btn" href="${pageContext.request.contextPath}/checkout">Checkout</a>
     </c:if>
   </div>
 </div>
