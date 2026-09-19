@@ -1,4 +1,4 @@
-package com.madhunisha.madhumart.controller;
+git add . && git commit -m "F7: Admin panel" && git pushpackage com.madhunisha.madhumart.controller;
 
 import com.google.gson.JsonObject;
 import com.madhunisha.madhumart.exception.AppException;
