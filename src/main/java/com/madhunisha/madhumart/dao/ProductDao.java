@@ -104,4 +104,46 @@ public class ProductDao {
             return ps.executeUpdate() > 0;
         }
     }
+
+    public List<Product> search(String keyword, String category) throws SQLException {
+        StringBuilder sql = new StringBuilder(SELECT_BASE + "WHERE p.active = TRUE ");
+        List<String> params = new ArrayList<>();
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            sql.append("AND (LOWER(p.name) LIKE ? OR LOWER(p.description) LIKE ?) ");
+            String like = "%" + keyword.trim().toLowerCase() + "%";
+            params.add(like);
+            params.add(like);
+        }
+        if (category != null && !category.trim().isEmpty()) {
+            sql.append("AND p.category = ? ");
+            params.add(category.trim());
+        }
+        sql.append("ORDER BY p.id DESC");
+        List<Product> list = new ArrayList<>();
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql.toString())) {
+            for (int i = 0; i < params.size(); i++) {
+                ps.setString(i + 1, params.get(i));
+            }
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    list.add(map(rs));
+                }
+            }
+        }
+        return list;
+    }
+
+    public List<String> findCategories() throws SQLException {
+        String sql = "SELECT DISTINCT category FROM products WHERE active = TRUE ORDER BY category";
+        List<String> list = new ArrayList<>();
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                list.add(rs.getString(1));
+            }
+        }
+        return list;
+    }
 }

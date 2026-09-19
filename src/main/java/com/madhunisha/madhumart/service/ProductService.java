@@ -122,4 +122,35 @@ public class ProductService {
         p.setImageUrl(imageUrl == null ? "" : imageUrl.trim());
         return p;
     }
+
+    public List<Product> search(String keyword, String category) throws AppException {
+        try {
+            return productDao.search(keyword, category);
+        } catch (SQLException e) {
+            log.error("Could not search products", e);
+            throw new AppException("Could not load products", e);
+        }
+    }
+
+    public List<String> categories() throws AppException {
+        try {
+            return productDao.findCategories();
+        } catch (SQLException e) {
+            log.error("Could not load categories", e);
+            throw new AppException("Could not load categories", e);
+        }
+    }
+
+    public Product getPublic(long productId) throws AppException {
+        try {
+            Product p = productDao.findById(productId);
+            if (p == null || !p.isActive()) {
+                throw new AppException("Product not found");
+            }
+            return p;
+        } catch (SQLException e) {
+            log.error("Could not load product", e);
+            throw new AppException("Could not load product", e);
+        }
+    }
 }
