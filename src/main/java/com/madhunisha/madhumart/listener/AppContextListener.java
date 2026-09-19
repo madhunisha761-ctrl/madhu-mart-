@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.stream.Collectors;
 
@@ -25,12 +26,26 @@ public class AppContextListener implements ServletContextListener {
         log.info("Starting MadhuMart, creating connection pool");
         DBUtil.init();
         runScript("/db/schema.sql");
+        if (isUsersTableEmpty()) {
+            runScript("/db/seed.sql");
+        }
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent event) {
         log.info("Stopping MadhuMart, closing connection pool");
         DBUtil.shutdown();
+    }
+
+    private boolean isUsersTableEmpty() {
+        try (Connection con = DBUtil.getConnection();
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM users")) {
+            return rs.next() && rs.getInt(1) == 0;
+        } catch (Exception e) {
+            log.error("Could not check users table", e);
+            throw new RuntimeException(e);
+        }
     }
 
     private void runScript(String path) {
