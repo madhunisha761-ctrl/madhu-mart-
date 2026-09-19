@@ -1,0 +1,21 @@
+# Maven build output
+target/
+
+# Secrets / credentials
+.env
+*.env
+application-local.properties
+
+# H2 database files
+*.mv.db
+*.trace.db
+data/
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
