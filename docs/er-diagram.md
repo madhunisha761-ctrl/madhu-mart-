@@ -1,0 +1,53 @@
+```mermaid
+erDiagram
+    USERS ||--o{ PRODUCTS : sells
+    USERS ||--o{ ORDERS : places
+    USERS ||--o{ CART_ITEMS : has
+    USERS ||--o{ REVIEWS : writes
+    ORDERS ||--|{ ORDER_ITEMS : contains
+    PRODUCTS ||--o{ ORDER_ITEMS : ordered_in
+    PRODUCTS ||--o{ CART_ITEMS : added_to
+    PRODUCTS ||--o{ REVIEWS : reviewed_in
+    USERS {
+        bigint id PK
+        varchar email UK
+        varchar password_hash
+        varchar role
+        timestamp created_at
+    }
+    PRODUCTS {
+        bigint id PK
+        bigint seller_id FK
+        varchar name
+        decimal price
+        int stock
+        timestamp created_at
+    }
+    ORDERS {
+        bigint id PK
+        bigint buyer_id FK
+        decimal total_amount
+        varchar status
+        timestamp created_at
+    }
+    ORDER_ITEMS {
+        bigint id PK
+        bigint order_id FK
+        bigint product_id FK
+        int quantity
+        decimal unit_price
+    }
+    CART_ITEMS {
+        bigint id PK
+        bigint user_id FK
+        bigint product_id FK
+        int quantity
+    }
+    REVIEWS {
+        bigint id PK
+        bigint product_id FK
+        bigint user_id FK
+        int rating
+        varchar review_text
+    }
+```
