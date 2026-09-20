@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Pacifico&display=swap");
 * { box-sizing: border-box; }
-body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; color: #333; }
+body { font-family: Poppins, Arial, sans-serif; margin: 0; background: #f5f5f5; color: #333; }
 nav { background: #131921; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 nav a, nav button { color: #fff; text-decoration: none; font-weight: bold; background: none; border: none; font-size: 16px; cursor: pointer; }
-nav .brand { font-size: 20px; margin-right: auto; }
+nav .brand { font-size: 26px; font-family: Pacifico, cursive; margin-right: auto; }
 .container { max-width: 900px; margin: 20px auto; padding: 0 16px; }
 .card { background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
 .form-card { max-width: 400px; margin: 30px auto; }
