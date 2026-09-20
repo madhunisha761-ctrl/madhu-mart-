@@ -11,3 +11,9 @@ input, select, textarea { width: 100%; padding: 10px; margin-top: 4px; border: 1
 .btn { display: inline-block; margin-top: 16px; padding: 10px 18px; background: #e67e22; color: #fff; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; text-decoration: none; }
 .error { background: #fdecea; color: #c0392b; padding: 10px; border-radius: 6px; margin-bottom: 10px; }
 .success { background: #eafaf1; color: #1e8449; padding: 10px; border-radius: 6px; margin-bottom: 10px; }
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 14px; }
+.pcard { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 8px; }
+.pcard img { width: 100%; height: 140px; object-fit: contain; background: #fafafa; }
+.pcard .noimg { height: 140px; background: #eee; display: flex; align-items: center; justify-content: center; color: #999; }
+.pcard .price { font-weight: bold; color: #e67e22; }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(3, 1fr); } }

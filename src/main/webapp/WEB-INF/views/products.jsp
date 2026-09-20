@@ -28,14 +28,20 @@
     </form>
     <c:if test="${not empty error}"><div class="error"><c:out value="${error}"/></div></c:if>
     <c:if test="${empty products}"><p>No products found.</p></c:if>
-    <c:forEach var="p" items="${products}">
-      <div style="border-top:1px solid #ddd; margin-top:14px; padding-top:10px">
-        <b><a href="${pageContext.request.contextPath}/product?id=${p.id}"><c:out value="${p.name}"/></a></b><br>
-        <c:out value="${p.category}"/> | Rs. <c:out value="${p.price}"/><br>
-        Seller: <c:out value="${p.sellerName}"/>
-      <br><button class="btn" type="button" onclick="addToCart(${p.id})">Add to Cart</button>
-      </div>
-    </c:forEach>
+    <div class="grid">
+      <c:forEach var="p" items="${products}">
+        <div class="pcard">
+          <c:choose>
+            <c:when test="${not empty p.imageUrl}"><img src="<c:out value='${p.imageUrl}'/>" alt="product"></c:when>
+            <c:otherwise><div class="noimg">No photo</div></c:otherwise>
+          </c:choose>
+          <b><a href="${pageContext.request.contextPath}/product?id=${p.id}"><c:out value="${p.name}"/></a></b><br>
+          <span class="price">Rs. <c:out value="${p.price}"/></span><br>
+          <small><c:out value="${p.category}"/> | <c:out value="${p.sellerName}"/></small><br>
+          <button class="btn" type="button" onclick="addToCart(${p.id})">Add to Cart</button>
+        </div>
+      </c:forEach>
+    </div>
   </div>
 </div>
 <script>
