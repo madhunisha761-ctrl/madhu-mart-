@@ -13,3 +13,12 @@ INSERT INTO products (seller_id, name, description, category, price, stock) VALU
 (3, 'Java Programming Book', 'Beginner friendly Java guide', 'Books', 549.00, 20),
 (3, 'Steel Water Bottle', '1 litre insulated water bottle', 'Home', 349.00, 50),
 (2, 'LED Desk Lamp', 'Adjustable brightness desk lamp', 'Home', 699.00, 35);
+
+UPDATE products SET image_url = 'https://picsum.photos/seed/earbuds/400/300' WHERE name = 'Wireless Earbuds';
+UPDATE products SET image_url = 'https://picsum.photos/seed/powerbank/400/300' WHERE name = 'Power Bank 10000mAh';
+UPDATE products SET image_url = 'https://picsum.photos/seed/smartwatch/400/300' WHERE name = 'Smart Watch';
+UPDATE products SET image_url = 'https://picsum.photos/seed/tshirt/400/300' WHERE name = 'Cotton T-Shirt';
+UPDATE products SET image_url = 'https://picsum.photos/seed/jeans/400/300' WHERE name = 'Denim Jeans';
+UPDATE products SET image_url = 'https://picsum.photos/seed/book/400/300' WHERE name = 'Java Programming Book';
+UPDATE products SET image_url = 'https://picsum.photos/seed/bottle/400/300' WHERE name = 'Steel Water Bottle';
+UPDATE products SET image_url = 'https://picsum.photos/seed/lamp/400/300' WHERE name = 'LED Desk Lamp';
