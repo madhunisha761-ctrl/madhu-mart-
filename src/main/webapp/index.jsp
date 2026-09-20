@@ -41,6 +41,15 @@
     <p>Multi-seller online marketplace.</p>
   </div>
 </div>
+<div style="position:fixed;right:12px;bottom:12px;width:280px;background:#fff;border:1px solid #ccc;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.3)">
+  <div style="background:#e67e22;color:#fff;padding:8px;font-weight:bold">MadhuBot</div>
+  <div id="chatlog" style="height:140px;overflow:auto;padding:8px;font-size:14px"></div>
+  <div style="display:flex;padding:6px;gap:4px">
+    <input id="chatmsg" type="text" placeholder="Ask me..." style="flex:1;margin:0">
+    <button class="btn" style="margin:0;padding:6px 10px" onclick="sendChat()">Send</button>
+  </div>
+</div>
+<script src="${pageContext.request.contextPath}/js/chat.js"></script>
 </body>
 
 
