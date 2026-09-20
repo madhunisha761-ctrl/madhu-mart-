@@ -37,6 +37,13 @@
     <c:forEach var="o" items="${orders}">
       <div style="border-top:1px solid #ddd; padding:8px 0">
         #<c:out value="${o.id}"/> | <c:out value="${o.buyerName}"/> | Rs. <c:out value="${o.totalAmount}"/> | <c:out value="${o.status}"/>
+        <c:if test="${o.status != 'COMPLETED'}">
+          <form method="post" action="${pageContext.request.contextPath}/admin/panel">
+            <input type="hidden" name="id" value="${o.id}">
+            <input type="hidden" name="action" value="completeOrder">
+            <button class="btn" type="submit">Mark Completed</button>
+          </form>
+        </c:if>
       </div>
     </c:forEach>
   </div>

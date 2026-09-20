@@ -71,4 +71,14 @@ public class AdminService {
             throw new AppException("Could not update listing", e);
         }
     }
+
+    public void completeOrder(long orderId) throws AppException {
+        try {
+            adminDao.completeOrder(orderId);
+            log.info("Admin completed order {}", orderId);
+        } catch (SQLException e) {
+            log.error("Could not update order", e);
+            throw new AppException("Could not update order", e);
+        }
+    }
 }

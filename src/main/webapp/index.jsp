@@ -11,6 +11,17 @@
 <body>
 <nav>
   <a class="brand" href="${pageContext.request.contextPath}/">MadhuMart</a>
+  <a href="${pageContext.request.contextPath}/products">Products</a>
+  <c:if test="${not empty sessionScope.user}">
+    <a href="${pageContext.request.contextPath}/cart">Cart</a>
+    <a href="${pageContext.request.contextPath}/orders">Orders</a>
+  </c:if>
+  <c:if test="${sessionScope.user.role == 'SELLER'}">
+    <a href="${pageContext.request.contextPath}/seller/products">My Products</a>
+  </c:if>
+  <c:if test="${sessionScope.user.role == 'ADMIN'}">
+    <a href="${pageContext.request.contextPath}/admin/panel">Admin</a>
+  </c:if>
   <c:choose>
     <c:when test="${not empty sessionScope.user}">
       <span style="color:#fff">Hello, <c:out value="${sessionScope.user.name}"/> (<c:out value="${sessionScope.user.role}"/>)</span>

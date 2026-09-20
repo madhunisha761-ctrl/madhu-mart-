@@ -27,7 +27,9 @@ public class AdminServlet extends HttpServlet {
         String action = req.getParameter("action");
         try {
             long id = Long.parseLong(req.getParameter("id"));
-            if ("disableUser".equals(action)) {
+            if ("completeOrder".equals(action)) {
+                adminService.completeOrder(id);
+            } else if ("disableUser".equals(action)) {
                 adminService.setUserActive(id, false);
             } else if ("enableUser".equals(action)) {
                 adminService.setUserActive(id, true);

@@ -96,4 +96,13 @@ public class AdminDao {
             ps.executeUpdate();
         }
     }
+
+    public void completeOrder(long orderId) throws SQLException {
+        String sql = "UPDATE orders SET status = 'COMPLETED' WHERE id = ?";
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setLong(1, orderId);
+            ps.executeUpdate();
+        }
+    }
 }

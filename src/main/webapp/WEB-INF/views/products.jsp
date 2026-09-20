@@ -30,7 +30,7 @@
     <c:if test="${empty products}"><p>No products found.</p></c:if>
     <c:forEach var="p" items="${products}">
       <div style="border-top:1px solid #ddd; margin-top:14px; padding-top:10px">
-        <b><c:out value="${p.name}"/></b><br>
+        <b><a href="${pageContext.request.contextPath}/product?id=${p.id}"><c:out value="${p.name}"/></a></b><br>
         <c:out value="${p.category}"/> | Rs. <c:out value="${p.price}"/><br>
         Seller: <c:out value="${p.sellerName}"/>
       <br><button class="btn" type="button" onclick="addToCart(${p.id})">Add to Cart</button>
