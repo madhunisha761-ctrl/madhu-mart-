@@ -34,3 +34,7 @@ Database settings come from environment variables (optional): DB_URL, DB_USER, D
 
 ## Tests
     mvn test
+cat >> src/main/resources/db/seed.sql << 'EOF'
+UPDATE products SET image_url = 'https://images.pexels.com/photos/2343476/pexels-photo-2343476.jpeg' WHERE name = 'Java Programming Book';
+EOF
+echo DONE>>

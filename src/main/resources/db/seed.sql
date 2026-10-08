@@ -38,3 +38,11 @@ UPDATE products SET image_url = 'https://loremflickr.com/400/300/tshirt' WHERE n
 UPDATE products SET image_url = 'https://loremflickr.com/400/300/smartwatch' WHERE name = 'Smart Watch';
 UPDATE products SET image_url = 'https://loremflickr.com/400/300/powerbank' WHERE name = 'Power Bank';
 UPDATE products SET image_url = 'https://loremflickr.com/400/300/earbuds' WHERE name = 'Wireless Earbuds';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/7439754/pexels-photo-7439754.jpeg' WHERE name = 'LED Desk Lamp';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/10035322/pexels-photo-10035322.jpeg' WHERE name = 'Steel Water Bottle';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/2343476/pexels-photo-2343476.jpeg' WHERE name = 'Java Programming Book';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/6764142/pexels-photo-6764142.jpeg' WHERE name = 'Denim Jeans';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/8148577/pexels-photo-8148577.jpeg' WHERE name = 'Cotton T-Shirt';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/31406903/pexels-photo-31406903.jpeg' WHERE name = 'Smart Watch';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/3921704/pexels-photo-3921704.jpeg' WHERE name = 'Power Bank';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/11599421/pexels-photo-11599421.jpeg' WHERE name = 'Wireless Earbuds';
