@@ -30,3 +30,11 @@ UPDATE products SET image_url = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w
 UPDATE products SET image_url = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2265%25%22 font-size=%22150%22 text-anchor=%22middle%22%3E%F0%9F%93%9A%3C/text%3E%3C/svg%3E' WHERE name = 'Java Programming Book';
 UPDATE products SET image_url = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2265%25%22 font-size=%22150%22 text-anchor=%22middle%22%3E%F0%9F%A5%A4%3C/text%3E%3C/svg%3E' WHERE name = 'Steel Water Bottle';
 UPDATE products SET image_url = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2265%25%22 font-size=%22150%22 text-anchor=%22middle%22%3E%F0%9F%92%A1%3C/text%3E%3C/svg%3E' WHERE name = 'LED Desk Lamp';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/desklamp' WHERE name = 'LED Desk Lamp';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/waterbottle' WHERE name = 'Steel Water Bottle';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/book' WHERE name = 'Java Programming Book';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/jeans' WHERE name = 'Denim Jeans';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/tshirt' WHERE name = 'Cotton T-Shirt';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/smartwatch' WHERE name = 'Smart Watch';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/powerbank' WHERE name = 'Power Bank';
+UPDATE products SET image_url = 'https://loremflickr.com/400/300/earbuds' WHERE name = 'Wireless Earbuds';
