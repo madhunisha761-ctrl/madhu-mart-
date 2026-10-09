@@ -38,3 +38,9 @@ cat >> src/main/resources/db/seed.sql << 'EOF'
 UPDATE products SET image_url = 'https://images.pexels.com/photos/2343476/pexels-photo-2343476.jpeg' WHERE name = 'Java Programming Book';
 EOF
 echo DONE>>
+## Known Limitations
+- Render free-tier database runs in-memory; data resets on app restart or redeploy (seed accounts and demo products return automatically).
+- The app sleeps after 15 minutes of inactivity on the free plan; first load after sleep takes ~50 seconds.
+- Automated test coverage currently covers UserService; ProductService and CartService are planned next.
+- The AI chatbot (MadhuBot) is rule-based (FAQ-style), not powered by an external LLM API.
+- No real payment gateway is integrated, per project scope (mock checkout only).
