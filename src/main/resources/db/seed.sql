@@ -46,3 +46,12 @@ UPDATE products SET image_url = 'https://images.pexels.com/photos/8148577/pexels
 UPDATE products SET image_url = 'https://images.pexels.com/photos/31406903/pexels-photo-31406903.jpeg' WHERE name = 'Smart Watch';
 UPDATE products SET image_url = 'https://images.pexels.com/photos/3921704/pexels-photo-3921704.jpeg' WHERE name = 'Power Bank';
 UPDATE products SET image_url = 'https://images.pexels.com/photos/11599421/pexels-photo-11599421.jpeg' WHERE name = 'Wireless Earbuds';
+INSERT INTO products (seller_id, name, description, category, price, stock) VALUES
+(2, 'Bluetooth Speaker', 'Portable wireless speaker', 'Electronics', 1299.00, 25),
+(3, 'Running Shoes', 'Lightweight sports shoes', 'Fashion', 1599.00, 20),
+(2, 'Wall Clock', 'Modern round wall clock', 'Home', 499.00, 30),
+(3, 'Notebook Set', 'Pack of 3 ruled notebooks', 'Books', 199.00, 50);
+UPDATE products SET image_url = 'https://images.pexels.com/photos/13465232/pexels-photo-13465232.jpeg' WHERE name = 'Bluetooth Speaker';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/9207813/pexels-photo-9207813.jpeg' WHERE name = 'Running Shoes';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/707676/pexels-photo-707676.jpeg' WHERE name = 'Wall Clock';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/5712509/pexels-photo-5712509.jpeg' WHERE name = 'Notebook Set';
