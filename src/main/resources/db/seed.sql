@@ -55,3 +55,22 @@ UPDATE products SET image_url = 'https://images.pexels.com/photos/13465232/pexel
 UPDATE products SET image_url = 'https://images.pexels.com/photos/9207813/pexels-photo-9207813.jpeg' WHERE name = 'Running Shoes';
 UPDATE products SET image_url = 'https://images.pexels.com/photos/707676/pexels-photo-707676.jpeg' WHERE name = 'Wall Clock';
 UPDATE products SET image_url = 'https://images.pexels.com/photos/5712509/pexels-photo-5712509.jpeg' WHERE name = 'Notebook Set';
+INSERT INTO products (seller_id, name, description, category, price, stock) VALUES
+(2, 'Laptop Stand', 'Adjustable aluminum laptop stand', 'Electronics', 899.00, 25),
+(2, 'USB Cable', 'Fast charging USB-C cable', 'Electronics', 149.00, 60),
+(3, 'Leather Wallet', 'Genuine leather bifold wallet', 'Fashion', 799.00, 30),
+(3, 'Sunglasses', 'UV protection stylish sunglasses', 'Fashion', 599.00, 40),
+(2, 'Ceramic Mug', 'Handmade ceramic coffee mug', 'Home', 249.00, 50),
+(2, 'Table Fan', 'High speed table fan', 'Home', 1299.00, 15),
+(3, 'Fiction Novel', 'Bestselling fiction paperback', 'Books', 349.00, 35),
+(3, 'Kids Story Book', 'Illustrated kids story book', 'Books', 249.00, 45);
+UPDATE products SET image_url = 'https://images.pexels.com/photos/4792712/pexels-photo-4792712.jpeg' WHERE name = 'Laptop Stand';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/7688795/pexels-photo-7688795.jpeg' WHERE name = 'USB Cable';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/7688795/pexels-photo-7688795.jpeg' WHERE name = 'USB Cable';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/4452399/pexels-photo-4452399.jpeg' WHERE name = 'Leather Wallet';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/26575042/pexels-photo-26575042.jpeg' WHERE name = 'Sunglasses';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/6754875/pexels-photo-6754875.jpeg' WHERE name = 'Ceramic Mug';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/8102643/pexels-photo-8102643.jpeg' WHERE name = 'Table Fan';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/8102643/pexels-photo-8102643.jpeg' WHERE name = 'Table Fan';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/38681934/pexels-photo-38681934.jpeg' WHERE name = 'Fiction Novel';
+UPDATE products SET image_url = 'https://images.pexels.com/photos/7946399/pexels-photo-7946399.jpeg' WHERE name = 'Kids Story Book';
